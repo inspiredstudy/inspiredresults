@@ -1,4 +1,4 @@
-from inspiredresults.readers import cord, dwi, mpm
+from inspiredresults.readers import cord, dwi, mpm, clinical
 
 READERS = {
     'MT_WM': mpm.mt_wm,
@@ -39,6 +39,11 @@ READERS = {
     'CORD_FA_IN_DC_MEAN': cord.fa_in_dc_mean,
     'CORD_FA_IN_LF_MEAN': cord.fa_in_lf_mean,
     'CORD_FA_IN_VF_MEAN': cord.fa_in_vf_mean,
+    'GRASSP': clinical.grassp,
+    'SCIM': clinical.scim,
+    'DASH': clinical.dash,
+    'DASH_WORK': clinical.dash_work,
+    'DASH_SPORT_MUSIC': clinical.dash_sport_music,
 }
 
 
