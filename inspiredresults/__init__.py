@@ -24,7 +24,10 @@ def output_subject(subject):
 
 
 def print_row(subject, visit, test, result):
-    row = f"{subject.site},{subject.type},{subject.id},{subject.age},{subject.gender},{visit},{subject.scan_date},{test},{result}"
+    row = (
+        f"{subject.site},{subject.type},{subject.id},{subject.age},"
+        f"{subject.gender},{visit},{subject.scan_date},{test},{result}"
+    )
     print(row)
 
 
