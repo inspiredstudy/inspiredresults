@@ -1,3 +1,4 @@
+import sys
 from inspiredresults.subjects import get_subjects
 from inspiredresults.fieldnames import FIELD_NAMES
 from inspiredresults.readers import get_reader, list_test_codes
@@ -20,6 +21,14 @@ def output_subject(subject):
                 result = "MISSING"
             except NotImplementedError:
                 result = "NOTIMPLEMENTED"
+            except Exception as e:
+                result = "ERROR"
+                err_msg = "Exception reading {1} for {0.site}/{0.type}/{0.id}: {2!r}".format(
+                    subject,
+                    test,
+                    e
+                )
+                print(err_msg, file=sys.stderr)
             print_row(subject, visit, test, result)
 
 
