@@ -62,6 +62,10 @@ READERS = {
     'CLIN_DASH': clinical.dash,
     'CLIN_DASH_WORK': clinical.dash_work,
     'CLIN_DASH_SPORT_MUSIC': clinical.dash_sport_music,
+    'CLIN_NURICK': clinical.nurick,
+    'CLIN_MJOA': clinical.mjoa,
+    'CLIN_HEIGHT': clinical.height,
+    'CLIN_WEIGHT': clinical.weight,
 }
 
 

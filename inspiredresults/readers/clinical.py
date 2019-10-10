@@ -33,19 +33,13 @@ def _read_and_clean_zurich(filename):
         'comment',
         'complete?'
     ]
-
     baseline_cols = [c for c in df.columns if c not in screening_cols and c != 'record_id']
-
     screening = df[df.event_name == 'Screening']
     baseline = df[df.event_name == 'Baseline']
-
     df = pd.merge(screening, baseline, on='record_id')
-
     screening_cols = [c + '_x' for c in screening_cols]
     baseline_cols = [c + '_y' for c in baseline_cols]
-
     df = df.loc[:, screening_cols + baseline_cols]
-
     df.columns = [c[:-2] for c in df.columns]
 
     # set identifier columns
@@ -145,3 +139,19 @@ def dash_work(subject, visit):
 
 def dash_sport_music(subject, visit):
     return _get_value(subject, visit, 'dash_sport/music_score')
+
+
+def nurick(subject, visit):
+    return _get_value(subject, visit, 'nurick')
+
+
+def mjoa(subject, visit):
+    return _get_value(subject, visit, 'total_mjoa')
+
+
+def height(subject, visit):
+    return _get_value(subject, visit, 'height_(m)')
+
+
+def weight(subject, visit):
+    return _get_value(subject, visit, 'weight_(kg)')
