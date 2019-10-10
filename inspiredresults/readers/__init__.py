@@ -1,4 +1,4 @@
-from inspiredresults.readers import cord, dwi, mpm, clinical
+from inspiredresults.readers import cord, dwi, mpm, clinical, gironax
 
 READERS = {
     'BRAIN_MT_WM': mpm.mt_wm,
@@ -33,6 +33,12 @@ READERS = {
     'BRAIN_AD_CGM': dwi.ad_cgm,
     'BRAIN_AD_DGM': dwi.ad_dgm,
     'BRAIN_AD_CEREBELLUM': dwi.ad_cerebellum,
+    'BRAIN_NORMALIZED_VOLUME': gironax.brain_vol,
+    'BRAIN_NORMALIZED_CGM_VOL': gironax.cortical_gm_vol,
+    'BRAIN_NORMALIZED_DGM_VOL': gironax.deep_gm_vol,
+    'BRAIN_NORMALIZED_GM_VOL': gironax.gm_vol,
+    'BRAIN_NORMALIZED_WM_VOL': gironax.wm_vol,
+    'BRAIN_VOL_SCALING_FACTOR': gironax.scaling_factor,
     'CORD_GM_CSA': cord.gm_csa_mean,
     'CORD_WM_CSA': cord.wm_csa_mean,
     'CORD_FA_WM': cord.fa_in_wm_mean,
