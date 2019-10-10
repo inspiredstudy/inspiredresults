@@ -7,7 +7,12 @@ def gm_csa_mean(subject, visit):
     csa_path = path_to(subject, visit) / "cord/sct_processing/t2s/gm_csa.csv"
     csa_read = DictReader(csa_path.open("r"))
     row = next(csa_read)
-    mean_area = row["MEAN(CSA [mm^2])"]
+    if "MEAN(CSA [mm^2])" in row:
+        mean_area = row["MEAN(CSA [mm^2])"]
+    elif "MEAN(area)" in row:
+        mean_area = row["MEAN(area)"]
+    else:
+        raise KeyError("No cord area column in {0}".format(csa_path))
     return "{0:0.2f}".format(float(mean_area))
 
 
@@ -15,7 +20,12 @@ def wm_csa_mean(subject, visit):
     csa_path = path_to(subject, visit) / "cord/sct_processing/t2s/wm_csa.csv"
     csa_read = DictReader(csa_path.open("r"))
     row = next(csa_read)
-    mean_area = row["MEAN(CSA [mm^2])"]
+    if "MEAN(CSA [mm^2])" in row:
+        mean_area = row["MEAN(CSA [mm^2])"]
+    elif "MEAN(area)" in row:
+        mean_area = row["MEAN(area)"]
+    else:
+        raise KeyError("No cord area column in {0}".format(csa_path))
     return "{0:0.2f}".format(float(mean_area))
 
 
