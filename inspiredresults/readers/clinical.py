@@ -73,16 +73,8 @@ def _read_and_clean_toronto(filename):
     df.loc[df.id == 'INS-003', 'type'] = 'sci'
 
     # harmonize measures
-    df.rename(columns={
-        'quickdash': 'dash_score',
-        'nurick_grade': 'nurick',
-        'mjoa': 'total_mjoa',
-        'height': 'height_(m)',
-        'weight': 'weight_(kg)',
-    }, inplace=True)
+    # strength not included as not done at Zurich
     df['total_l+r'] = (
-        df['r_mrc_strength'] +
-        df['l_mrc_strength'] +
         df['r_sensation'] +
         df['l_sensation'] +
         df['r_qual_prehension'] +
@@ -90,8 +82,25 @@ def _read_and_clean_toronto(filename):
         df['r_quan_prehension_(30)'] +
         df['l_quan_prehension_(30)']
     )
+    df.rename(columns={
+        'quickdash': 'dash_score',
+        'nurick_grade': 'nurick',
+        'mjoa': 'total_mjoa',
+        'mjoa_ue': 'total_upper_extremity_motor_score',
+        'mjoa_le': 'total_lower_extremity_motor_score',
+        'height': 'height_(m)',
+        'weight': 'weight_(kg)',
+        'r_sensation': 'total_sensibility_right',
+        'l_sensation': 'total_sensibility_left',
+        'r_qual_prehension': 'total_qualitative_grassp_right',
+        'l_qual_prehension': 'total_qualitative_grassp_left',
+        'r_quan_prehension_(30)': 'total_points_quantitative_grassp_right',
+        'l_quan_prehension_(30)': 'total_points_quantitative_grassp_left',
+    }, inplace=True)
 
+    # convert height from cm to m
     df['height_(m)'] = df['height_(m)'] / 100.0
+    # convert weight from lb to kg
     df['weight_(kg)'] = round(df['weight_(kg)'] * 0.453592, 1)
 
     return df
@@ -123,6 +132,30 @@ def _get_value(subject, visit, column):
 
 def grassp(subject, visit):
     return _get_value(subject, visit, 'total_l+r')
+
+
+def grassp_sensation_r(subject, visit):
+    return _get_value(subject, visit, 'total_sensibility_right')
+
+
+def grassp_sensation_l(subject, visit):
+    return _get_value(subject, visit, 'total_sensibility_left')
+
+
+def grassp_qual_prehension_r(subject, visit):
+    return _get_value(subject, visit, 'total_qualitative_grassp_right')
+
+
+def grassp_qual_prehension_l(subject, visit):
+    return _get_value(subject, visit, 'total_qualitative_grassp_left')
+
+
+def grassp_quan_prehension_r(subject, visit):
+    return _get_value(subject, visit, 'total_points_quantitative_grassp_right')
+
+
+def grassp_quan_prehension_l(subject, visit):
+    return _get_value(subject, visit, 'total_points_quantitative_grassp_left')
 
 
 def scim(subject, visit):
