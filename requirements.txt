@@ -19,7 +19,7 @@ et-xmlfile==1.0.1
 fabric==2.4.0
 flake8==3.7.7
 gitdb2==2.0.5
-GitPython==2.1.11
+GitPython==3.1.58
 h5py==2.9.0
 idna==2.8
 invoke==1.2.0
