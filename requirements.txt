@@ -38,8 +38,8 @@ lml==0.0.9
 lxml==4.9.1
 MarkupSafe==1.1.0
 mccabe==0.6.1
+nbconvert==6.5.1
 mistune==2.0.3
-nbconvert==5.4.0
 nbformat==4.4.0
 nibabel==2.3.2
 numpy==1.22.0
