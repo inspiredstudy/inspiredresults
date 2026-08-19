@@ -57,7 +57,7 @@ ptyprocess==0.6.0
 pyasn1==0.6.4
 pycodestyle==2.5.0
 pycparser==2.19
-pydicom==1.2.2
+pydicom==2.4.5
 pyexcel-ezodf==0.3.4
 pyexcel-io==0.5.14
 pyexcel-ods3==0.5.3
