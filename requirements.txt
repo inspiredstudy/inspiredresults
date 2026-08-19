@@ -42,8 +42,8 @@ mistune==0.8.4
 nbconvert==5.4.0
 nbformat==4.4.0
 nibabel==2.3.2
+numpy==1.22.0
 notebook==6.4.12
-numpy==1.15.4
 openpyxl==2.6.1
 pandas==0.24.1
 pandocfilters==1.4.2
